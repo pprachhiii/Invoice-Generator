@@ -3,13 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
-    <h1>Total Clients: <%= totalClients %></h1>
-    <h1>Total Invoices: <%= totalInvoices %></h1>
-    <h1>Total Paid Invoices: <%= paidInvoices %></h1>
-    <h1>Total Pending Invoices: <%= pendingInvoices %></h1>
-    <h1>Total Overdue Invoices: <%= overdueInvoices %></h1>
+
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/clients">Clients</a>
+            <a href="/invoices">Invoices</a>
+            <a href="/invoices/new">New</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h1>Dashboard</h1>
+            <p><strong>Total Clients:</strong> <%= totalClients %></p>
+            <p><strong>Total Invoices:</strong> <%= totalInvoices %></p>
+            <p><strong>Paid Invoices:</strong> <%= paidInvoices %></p>
+            <p><strong>Pending Invoices:</strong> <%= pendingInvoices %></p>
+            <p><strong>Overdue Invoices:</strong> <%= overdueInvoices %></p>
+        </section>
+
+        <section>
+            <h2>Recent Invoices</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Invoice Number</th>
+                        <th>Client Name</th>
+                        <th>Status</th>
+                        <th>Total Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let recentInvoice of recentInvoices) { %>
+                        <tr>
+                            <td><%= recentInvoice.invoice_number %></td>
+                            <td><%= recentInvoice.client_id ? recentInvoice.client_id.name : "Unknown" %></td>
+                            <td><%= recentInvoice.status %></td>
+                            <td><%= recentInvoice.total_amount %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <form action="/invoices/new" method="get">
+                <button type="submit">Add Client</button>
+            </form>
+        </section>
+    </main>
+
 </body>
 </html>

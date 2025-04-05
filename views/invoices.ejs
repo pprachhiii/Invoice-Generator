@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoices</title>
+    <link rel="stylesheet" href="/css/invoices.css">
+</head>
+<body>
+
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/clients">Clients</a>
+            <a href="/invoices" class="active">Invoices</a>
+            <a href="/invoices/new">New Invoice</a>
+        </nav>
+        <h1>Invoices</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Invoice ID</th>
+                        <th>Invoice #</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Items</th>
+                        <th colspan="3">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let invoice of invoices) { %>
+                        <tr>
+                            <td><%= invoice.id %></td>
+                            <td><%= invoice.invoice_number %></td>
+                            <td><%= invoice.date.toDateString() %></td>
+                            <td>₹<%= invoice.total_amount %></td>                            
+                            <td><%= invoice.status %></td>
+                            <td>
+                                <% invoice.items.forEach(item => { %>
+                                    <p><%= item.description %> (Qty: <%= item.quantity %>, ₹<%= item.price %>)</p>
+                                <% }) %>
+                            </td>
+                            <td>
+                                <form method="get" action="/invoices/<%= invoice.id %>">
+                                    <button type="submit" class="view">View</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="get" action="/invoices/<%= invoice.id %>/edit">
+                                    <button type="submit" class="edit">Edit</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="POST" action="/invoices/<%= invoice.id %>?_method=DELETE">
+                                    <button type="submit" class="delete" onclick="return confirm('Delete this invoice?');">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="action-buttons">
+            <form action="/invoices/new" method="get">
+                <button type="submit" class="add-btn">+ Add Invoice</button>
+            </form>
+            <a href="/" class="back-link">← Back to Dashboard</a>
+        </section>
+    </main>
+
+</body>
+</html>

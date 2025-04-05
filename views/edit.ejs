@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Invoice</title>
+    <link rel="stylesheet" href="/css/edit.css">
+</head>
+<body>
+    <header>
+        <h1>Edit Invoice: <%= invoice._id %></h1>
+    </header>
+
+    <main>
+        <form action="/invoices/<%= invoice._id %>?_method=PUT" method="POST">
+            <!-- Client Selection -->
+            <h2>Client Details</h2>
+            <label for="client">Select Client:</label>
+            <select name="client_id" id="client" required onchange="toggleNewClient(this.value)">
+                <% clients.forEach(client => { %>
+                    <option value="<%= client._id %>" <%= client._id.toString() === invoice.client_id.toString() ? "selected" : "" %>>
+                        <%= client.name %> - <%= client.email %>
+                    </option>
+                <% }); %>
+                <option value="new">+ Add New Client</option>
+            </select>
+
+            <div id="new-client-form" style="display: none;">
+                <input type="text" name="new_client_name" placeholder="Client Name">
+                <input type="email" name="new_client_email" placeholder="Client Email">
+                <input type="text" name="new_client_phone" placeholder="Client Phone">
+                <input type="text" name="new_client_address" placeholder="Client Address">
+            </div>
+
+            <h2>User Details</h2>
+            <input type="text" name="new_user_name" placeholder="Your Name" value="<%= user.name %>" readonly>
+            <input type="email" name="new_user_email" placeholder="Your Email" value="<%= user.email %>" readonly>
+            <input type="password" name="new_user_password" placeholder="Your password" value="******" readonly>
+
+            <h2>Invoice Details</h2>
+            <label for="invoice_number">Invoice Number:</label>
+            <input type="text" name="invoice_number" value="<%= invoice.invoice_number %>" readonly>
+
+            <label for="date">Date:</label>
+            <input type="date" name="date" value="<%= invoice.date.toISOString().split('T')[0] %>" required>
+
+            <label for="status">Status:</label>
+            <select name="status" id="status">
+                <option value="Pending" <%= invoice.status === "Pending" ? "selected" : "" %>>Pending</option>
+                <option value="Paid" <%= invoice.status === "Paid" ? "selected" : "" %>>Paid</option>
+                <option value="Overdue" <%= invoice.status === "Overdue" ? "selected" : "" %>>Overdue</option>
+            </select>
+
+            <!-- Invoice Items -->
+            <h2>Invoice Items</h2>
+            <div id="items">
+                <% invoice.items.forEach((item, index) => { %>
+                    <div class="item">
+                        <input type="text" name="items[<%= index %>][description]" value="<%= item.description %>" required>
+                        <input type="number" name="items[<%= index %>][quantity]" value="<%= item.quantity %>" required>
+                        <input type="number" name="items[<%= index %>][price]" value="<%= item.price %>" required>
+                    </div>
+                <% }); %>
+            </div>
+
+            <button type="button" onclick="addItem()">Add Item</button>
+            <button type="submit">Save Changes</button>
+        </form>
+    </main>
+
+    <script>
+        function toggleNewClient(value) {
+            document.getElementById("new-client-form").style.display = (value === "new") ? "block" : "none";
+        }
+
+        let itemIndex = 1;
+        function addItem() {
+            const itemsDiv = document.getElementById('items');
+            const newItem = document.createElement('div');
+            newItem.classList.add('item');
+            newItem.innerHTML = `
+                <input type="text" name="items[${itemIndex}][description]" placeholder="Description" required>
+                <input type="number" name="items[${itemIndex}][quantity]" placeholder="Quantity" required>
+                <input type="number" name="items[${itemIndex}][price]" placeholder="Price" required>
+            `;
+            itemsDiv.appendChild(newItem);
+            itemIndex++;
+        }
+    </script>
+</body>
+</html>

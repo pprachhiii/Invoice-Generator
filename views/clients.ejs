@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients</title>
+    <link rel="stylesheet" href="/css/clients.css">
+</head>
+<body>
+
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/clients" class="active">Clients</a>
+            <a href="/invoices">Invoices</a>
+            <a href="/invoices/new">New Invoice</a>
+        </nav>
+        <h1>Clients</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let client of clients) { %>
+                        <tr>
+                            <td><%= client.name %></td>
+                            <td><%= client.email %></td>
+                            <td><%= client.phone %></td>
+                            <td><%= client.address %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="action">
+            <form action="/invoices/new" method="get">
+                <button type="submit">+ Add Client</button>
+            </form>
+            <a href="/" class="back-link">← Back to Dashboard</a>
+        </section>
+    </main>
+
+</body>
+</html>
