@@ -35,12 +35,16 @@ Invoice-Generator/
 ├── controllers/            # Business logic and DB interactions
 │   └── init.js             # Optional: initial seed data
 │
+├── images/
+│   └── Dashboard.png
+│   └── InvoiceForm.png
+|
 ├── models/                 # Mongoose schemas
-│   ├── client.js
 │   ├── invoice.js
-│   └── user.js
 │
 ├── public/                 # Static files
+│   └── js/
+│       ├── app.js          #empty so far
 │   └── css/
 │       ├── dashboard.css
 │       ├── clients.css
@@ -49,27 +53,24 @@ Invoice-Generator/
 │       ├── edit.css
 │       └── view.css
 │
-├── routes/                 # Express route handlers
-│   ├── clientRoutes.js
-│   └── invoiceRoutes.js
-│
-├── views/                  # EJS templates
-│   ├── dashboard.ejs
-│   ├── clients.ejs
-│   ├── invoices/
-│   │   ├── new.ejs
-│   │   ├── list.ejs
-│   │   ├── edit.ejs
-│   │   └── view.ejs
-│   └── partials/           # Reusable UI parts like nav, footer
-│
 ├── server/
 │   └── index.js            # Main server entry point
+|
+├── views/                  # EJS templates
+│   ├── clients.ejs
+│   ├── dashboard.ejs
+│   ├── edit.ejs
+│   ├── invoices.ejs
+│   ├── new.ejs
+│   ├── view.ejs
 │
 ├── .env                    # Environment variables (ignored in git)
 ├── .gitignore              # Files/folders excluded from Git
+├── LICENSE
+├──package-lock.json       # Auto-generated lockfile for exact dependency versions
 ├── package.json
 └── README.md
+
 ```
 
 ---
