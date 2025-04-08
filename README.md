@@ -12,12 +12,6 @@ A simple and intuitive invoice management application built with **Node.js**, **
 - 📆 Manage invoice date and status (Paid, Pending, Overdue)
 - 🖊️ Edit invoices dynamically
 - 🔐 Associate invoices with users (basic user tracking)
-<<<<<<< HEAD
-- (Currently mocked or hardcoded. Login system planned in future enhancements.)
-
-=======
-- 🔐 Associate invoices with users (currently mocked — full login system coming soon)
->>>>>>> 25b4db0 (Updated README with structure and added images folder)
 
 ---
 
@@ -33,7 +27,7 @@ A simple and intuitive invoice management application built with **Node.js**, **
 ## 📁 Folder Structure
 
 ```
-InvoiceGenerator/
+Invoice-Generator/
 │
 ├── config/                  # MongoDB connection setup
 │   └── mongoose.js
@@ -86,7 +80,7 @@ InvoiceGenerator/
 
 ```bash
 git clone https://github.com/yourusername/InvoiceGenerator.git
-cd InvoiceGenerator
+cd Invoice-Generator
 ```
 
 ### 2. Install Dependencies
@@ -114,10 +108,6 @@ Then open your browser and visit:
 📍 `http://localhost:8080`
 
 ---
-### 🔗 Live Demo
-
-Check out the live app here: [Invoice Generator App]([https://your-live-link.com](https://invoice-generator-95re.onrender.com))
-
 
 ### 🔗 Live Demo
 
@@ -150,13 +140,6 @@ _Quick overview of all your invoices and their statuses._
 node_modules/
 .env
 ```
-
-> Make sure to remove them from Git tracking if already committed using:
->
-> ```bash
-> git rm -r --cached node_modules
-> git rm --cached .env
-> ```
 
 ---
 
