@@ -145,6 +145,6 @@ node_modules/
 
 ## 📬 Contact
 
-Made with ❤️ by Prachi
+Made with ❤️ by Prachi Yadav
 
 > Feel free to fork this repo or open an issue if you’d like to contribute or have suggestions!
