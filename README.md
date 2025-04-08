@@ -12,8 +12,12 @@ A simple and intuitive invoice management application built with **Node.js**, **
 - 📆 Manage invoice date and status (Paid, Pending, Overdue)
 - 🖊️ Edit invoices dynamically
 - 🔐 Associate invoices with users (basic user tracking)
+<<<<<<< HEAD
 - (Currently mocked or hardcoded. Login system planned in future enhancements.)
 
+=======
+- 🔐 Associate invoices with users (currently mocked — full login system coming soon)
+>>>>>>> 25b4db0 (Updated README with structure and added images folder)
 
 ---
 
@@ -115,6 +119,22 @@ Then open your browser and visit:
 Check out the live app here: [Invoice Generator App]([https://your-live-link.com](https://invoice-generator-95re.onrender.com))
 
 
+### 🔗 Live Demo
+
+Check out the live app here: [Invoice Generator App](https://invoice-generator-95re.onrender.com)
+
+## 📸 Screenshots
+
+### 📋 Invoice Form
+
+![Invoice Form](./images/InvoiceForm.png)  
+_Easily create invoices with dynamic line item calculation._
+
+### 📊 Dashboard View
+
+![Dashboard](./images/Dashboard.png)  
+_Quick overview of all your invoices and their statuses._
+
 ## 🧾 Sample Usage
 
 - Go to `/invoices/new` to create a new invoice.
@@ -154,3 +174,8 @@ node_modules/
 Made with ❤️ by Prachi Yadav
 
 > Feel free to fork this repo or open an issue if you’d like to contribute or have suggestions!
+
+## 🪪 License
+
+MIT — Copyright © 2025 Prachi Yadav
+See [LICENSE](./LICENSE) for full text.
