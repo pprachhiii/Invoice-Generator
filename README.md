@@ -12,6 +12,8 @@ A simple and intuitive invoice management application built with **Node.js**, **
 - 📆 Manage invoice date and status (Paid, Pending, Overdue)
 - 🖊️ Edit invoices dynamically
 - 🔐 Associate invoices with users (basic user tracking)
+- (Currently mocked or hardcoded. Login system planned in future enhancements.)
+
 
 ---
 
@@ -101,13 +103,17 @@ MONGODB_URI=mongodb://localhost:27017/invoice_app
 ### 4. Start the Server
 
 ```bash
-npm run dev
+nodemon server/index.js
 ```
 
 Then open your browser and visit:  
 📍 `http://localhost:8080`
 
 ---
+### 🔗 Live Demo
+
+Check out the live app here: [Invoice Generator App]([https://your-live-link.com](https://invoice-generator-95re.onrender.com))
+
 
 ## 🧾 Sample Usage
 
