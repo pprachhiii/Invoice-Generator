@@ -1,5 +1,7 @@
 # 🧾 Invoice Generator Web App
 
+Live Demo: [https://item-manager-psi.vercel.app/](https://invoice-generator-95re.onrender.com/)
+
 A simple and intuitive invoice management application built with **Node.js**, **Express**, **MongoDB**, and **EJS**. It allows users to create, view, edit, and delete invoices, as well as manage client information with ease.
 
 ---
